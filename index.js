@@ -21,7 +21,7 @@ app.get('/', function(req, res) {
             
             html=html.replace('<?='+key+'?>',req.query[key])
         }
-        html=html.replace('<?=email?>',req.query['email'] || '')
+        html=html.replace('<?=email?>',req.query['emailid'] || '')
         html=html.replace('"POST"','"GET"')
         res.writeHead(200, {'Content-Type' : 'text/html'});
         res.end(html);
@@ -46,6 +46,8 @@ app.post('/', function(req, res) {
             
             html=html.replace('<?='+key+'?>',req.body[key])
         }
+        html=html.replace('<?='+key+'?>',req.body[key])
+        html=html.replace('<?='+key+'?>',req.body[key])
         res.writeHead(200, {'Content-Type' : 'text/html'});
         res.end(html);
         break
