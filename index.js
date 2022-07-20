@@ -10,9 +10,9 @@ app.use(bodyParser.json());
 app.use(express.static('./public'));  // for publishing public/memo.html
 app.get('/', function(req, res) {
     console.log("GET")
-    console.log(req.query)
     var html=html0.replace('<?=emailid?>',req.query['emailid'] || '')
     var action=req.query.action || 'login'
+    console.log(action)
     switch (action){
 
         case '':
