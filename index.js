@@ -11,6 +11,7 @@ app.get('/', function(req, res) {
         case '':
         case null:
         case 'login':
+        default:
         for (key in req.query){
             
             html=html.replace('<?='+key+'?>',req.query[key])
