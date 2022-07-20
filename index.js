@@ -8,6 +8,7 @@ app.get('/', function(req, res) {
     switch (req.query.action){
 
         case '':
+        case null:
         case 'login':
         for (key in req.query){
             
@@ -33,8 +34,6 @@ app.post('/', function(req, res) {
         case 'add':
         case 'changepass':
         case 'image':
-        case '':
-        case 'login':
         for (key in req.query){
             
             html=html.replace('<?='+key+'?>',req.query[key])
