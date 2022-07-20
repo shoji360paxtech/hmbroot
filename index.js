@@ -14,6 +14,7 @@ app.get('/', function(req, res) {
             html=html.replace('<?='+key+'?>',req.query[key])
         }
         html=html.replace('<?=email?>',req.query['email'] || '')
+        html=html.replace('"POST"','"GET"')
 
         break
 
