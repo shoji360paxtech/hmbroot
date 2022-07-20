@@ -4,6 +4,7 @@ var app = express();
 
 app.use(express.static('./public'));  // for publishing public/memo.html
 app.get('/', function(req, res) {
+    console.log("GET")
     console.log(req.query)
     switch (req.query.action){
 
@@ -16,17 +17,18 @@ app.get('/', function(req, res) {
         }
         html=html.replace('<?=email?>',req.query['email'] || '')
         html=html.replace('"POST"','"GET"')
-
+        res.writeHead(200, {'Content-Type' : 'text/html'});
+        res.end(html);
+    
         break
 
     
     }
-    res.writeHead(200, {'Content-Type' : 'text/html'});
-    res.end(html);
 });
 
 
 app.post('/', function(req, res) {
+    console.log("POST")
     console.log(req.query)
     switch (req.query.action){
         case 'home':
@@ -38,12 +40,13 @@ app.post('/', function(req, res) {
             
             html=html.replace('<?='+key+'?>',req.query[key])
         }
+        res.writeHead(200, {'Content-Type' : 'text/html'});
+        res.end(html);
         break
 
     
     }
-    res.writeHead(200, {'Content-Type' : 'text/html'});
-    res.end(html);
+    
 });
 
 
