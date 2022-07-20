@@ -11,8 +11,9 @@ app.use(express.static('./public'));  // for publishing public/memo.html
 app.get('/', function(req, res) {
     console.log("GET")
     console.log(req.query)
-    var html=html0.replace('<?=email?>',req.query['emailid'] || '')
-    switch (req.query.action){
+    var html=html0.replace('<?=emailid?>',req.query['emailid'] || '')
+    var action=req.query.action || 'login'
+    switch (action){
 
         case '':
         case null:
@@ -22,6 +23,7 @@ app.get('/', function(req, res) {
             
             html=html.replace('<?='+key+'?>',req.query[key])
         }
+
         html=html.replace('"POST"','"GET"')
         res.writeHead(200, {'Content-Type' : 'text/html'});
         res.end(html);
