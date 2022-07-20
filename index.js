@@ -35,16 +35,16 @@ app.get('/', function(req, res) {
 
 app.post('/', function(req, res) {
     console.log("POST")
-    console.log(req.query)
-    switch (req.query.action){
+    console.log(req.body)
+    switch (req.body.action){
         case 'home':
         case 'update':
         case 'add':
         case 'changepass':
         case 'image':
-        for (key in req.query){
+        for (key in req.body){
             
-            html=html.replace('<?='+key+'?>',req.query[key])
+            html=html.replace('<?='+key+'?>',req.body[key])
         }
         res.writeHead(200, {'Content-Type' : 'text/html'});
         res.end(html);
