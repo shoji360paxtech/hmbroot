@@ -1,4 +1,4 @@
-var html = require('fs').readFileSync('index.html',{encoding:'utf-8'});
+var html0 = require('fs').readFileSync('index.html',{encoding:'utf-8'});
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -11,6 +11,7 @@ app.use(express.static('./public'));  // for publishing public/memo.html
 app.get('/', function(req, res) {
     console.log("GET")
     console.log(req.query)
+    var html=html0.replace('<?=email?>',req.query['emailid'] || '')
     switch (req.query.action){
 
         case '':
@@ -21,7 +22,6 @@ app.get('/', function(req, res) {
             
             html=html.replace('<?='+key+'?>',req.query[key])
         }
-        html=html.replace('<?=email?>',req.query['emailid'] || '')
         html=html.replace('"POST"','"GET"')
         res.writeHead(200, {'Content-Type' : 'text/html'});
         res.end(html);
@@ -36,6 +36,8 @@ app.get('/', function(req, res) {
 app.post('/', function(req, res) {
     console.log("POST")
     console.log(req.body)
+    var html=html0.replace('<?=email?>',req.query['emailid'] || '')
+
     switch (req.body.action){
         case 'home':
         case 'update':
@@ -46,8 +48,7 @@ app.post('/', function(req, res) {
             
             html=html.replace('<?='+key+'?>',req.body[key])
         }
-        html=html.replace('<?='+key+'?>',req.body[key])
-        html=html.replace('<?='+key+'?>',req.body[key])
+  
         res.writeHead(200, {'Content-Type' : 'text/html'});
         res.end(html);
         break
