@@ -1,6 +1,11 @@
 var html = require('fs').readFileSync('index.html',{encoding:'utf-8'});
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
 
 app.use(express.static('./public'));  // for publishing public/memo.html
 app.get('/', function(req, res) {
