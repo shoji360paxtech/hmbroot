@@ -12,6 +12,7 @@ app.use(express.static('./public'));  // for publishing public/memo.html
 app.get('/', function(req, res) {
     console.log("GET")
     var html=htmllogin0.replace('<?=emailid?>',req.query['emailid'] || '')
+    html=html.replace('##URL##',process.env.url)
     var action=req.query.action || 'login'
     console.log(action)
     switch (action){
@@ -40,6 +41,7 @@ app.post('/', function(req, res) {
     console.log("POST")
     console.log(req.body)
     var html=html0.replace('<?=email?>',req.query['emailid'] || '')
+    html=html.replace('##URL##',process.env.url)
 
     switch (req.body.action){
         case 'home':
