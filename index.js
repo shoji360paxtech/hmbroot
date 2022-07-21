@@ -1,4 +1,5 @@
 var html0 = require('fs').readFileSync('index.html',{encoding:'utf-8'});
+var htmllogin0 = require('fs').readFileSync('indexlogin.html',{encoding:'utf-8'});
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -10,7 +11,7 @@ app.use(bodyParser.json());
 app.use(express.static('./public'));  // for publishing public/memo.html
 app.get('/', function(req, res) {
     console.log("GET")
-    var html=html0.replace('<?=emailid?>',req.query['emailid'] || '')
+    var html=htmllogin0.replace('<?=emailid?>',req.query['emailid'] || '')
     var action=req.query.action || 'login'
     console.log(action)
     switch (action){
