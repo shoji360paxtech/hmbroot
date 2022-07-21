@@ -12,7 +12,7 @@ app.use(express.static('./public'));  // for publishing public/memo.html
 app.get('/', function(req, res) {
     console.log("GET")
     var html=htmllogin0.replace('<?=emailid?>',req.query['emailid'] || '')
-    html=html.replace('##URL##',process.env.url)
+    html=html.replace('##URL##','https://script.google.com/macros/s/AKfycbx3vlb7W1Lpngygja84dh8NZmvTttsu7Ak4IjUcOh4JuSP9FQVcboM9ySwyt51gf63qsQ/exec')
     var action=req.query.action || 'login'
     console.log(action)
     switch (action){
@@ -41,7 +41,7 @@ app.post('/', function(req, res) {
     console.log("POST")
     console.log(req.body)
     var html=html0.replace('<?=email?>',req.query['emailid'] || '')
-    html=html.replace('##URL##',process.env.url)
+    html=html.replace('##URL##','https://script.google.com/macros/s/AKfycbx3vlb7W1Lpngygja84dh8NZmvTttsu7Ak4IjUcOh4JuSP9FQVcboM9ySwyt51gf63qsQ/exec')
 
     switch (req.body.action){
         case 'home':
