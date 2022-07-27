@@ -1,13 +1,104 @@
 <!DOCTYPE html>
 <html>
     <head>
+    <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
         <link(rel='favicon',sizes='64x64',href='https://photo.handmade-box.com/wp-content/uploads/2022/07/64x64.png')>
+            <style>
+                body {margin:auto;justify-content:center}
+    body,input,textarea,select,div {font-size:16px}
+    input {touch-action: none;}
+    
+  * {font-family: "Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans", Meiryo, sans-serif;}
+  input {touch-action: none}
+   
+  body {margin:auto;justify-content: center;}
+  body,input,textarea,select,div {font-size:16px}
+    .tiledBackground {
+      background-repeat: no-repeat;
+  background-image: url(https://photo.handmade-box.com/wp-content/uploads/2022/07/hmblogo.png);
+  background-color:#AFEEEE;
+  border-color:#AFEEEE;
+  background-position:center;
+  background-size: 140px;
+  width: 150px;
+  height: 55px;
+  border: 2px solid;
+  color: #AFEEEE;
+    margin: 0 auto;
+}
+
+.btnblue {
+  border: 0;
+  text-align: center;
+  display: inline-block;
+  padding: 5px;
+  font-size:18px;
+  width: 180px;
+  margin: auto;
+  color: #ffffff;
+  background-color: #4169e0; 
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: box-shadow 200ms ease-out;
+}
+
+.btngreensmall {
+  border: 0;
+  text-align: center;
+  display: inline-block;
+  padding: 10px;
+  font-size:14px;
+  width: 100px;
+  margin: auto;
+  color: #ffffff;
+  background-color: #106f70; 
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: box-shadow 200ms ease-out;
+}
+
+.square_btn {
+  display: block;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #333;  
+  background: #fff;  
+}
+
+.square_btn::before, .square_btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;  
+  height: 27px;  
+  background: #333;  
+}
+
+.square_btn::before {
+  transform: translate(-50%,-50%) rotate(45deg);
+}
+
+.square_btn::after {
+  transform: translate(-50%,-50%) rotate(-45deg);
+}
+
+</style>  
     </head>
     <body style="width: 100;height: 100%;">
         <script>
             window.onload=function(){
                 document.getElementById('submit').click()
+            }
+            function showiframe(){
+                try{
+                document.getElementById("content").style.display='none';
+                document.getElementById("iframe-wrapper").style.display='block';                
+                } catch (ex){}
             }
         </script>
         <style>
@@ -17,9 +108,25 @@
             }
             #ifrm { width:100%; height:100%; position:absolute; top:0px; bottom:0px; }
           </style>
-          <div id="iframe-wrapper">
-            <iframe id="ifrm" name="ifrm" src="about:blank"></iframe>
+          <div id="iframe-wrapper" style="display:none">
+            <iframe id="ifrm" name="ifrm" src="about:blank;" onload="showiframe()"></iframe>
           </div>
+          <div id="content" class="" style="display:block;background-color:#AFEEEE;width:100%;height:88px;position:fixed;z-index:100">
+<table style="height:88px;position:fixed;width:100%;">
+  <tbody><tr><td style="background-color:#AFEEEE;width:25%!important;overflow:hidden" id="backbutton"></td><td style="overflow:hidden;width:50%"><div class="tiledBackground"></div>
+  </td><td style="text-align:right:width:25%!important"></td></tr>
+  <tr><td colspan="3" style="width:100%;font-size:10px;text-align:center">　　　　</td></tr><tr>
+  </tr><tr><td colspan="3">
+  <table style="width:100%;background-color:white">
+  <tbody><tr><td colspan="2" class="exclusiveWithIFrame" style="display;width:100%;text-align:center;opacity:0.6" id="title">
+  <table style="width:100%;background-color:white">
+  <tbody><tr><td colspan="2" class="exclusiveWithIFrame" style="width:100%" id="title">処理中...</td></tr>
+  </tbody></table>
+  
+  </td></tr>
+</tbody></table>
+</div>
+
 
         <form style="display: none;" method="POST"  target="ifrm" action='##URL##' method='post' style="display:none" >
             <input type='text' value='<?=usr?>' name='usr'>
