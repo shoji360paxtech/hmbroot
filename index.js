@@ -17,7 +17,7 @@ app.get('/', function(req, res) {
     console.log(action)
     switch (action){
        case 'sheet':
-            res.redirect(301,process.env.ssurl)
+            res.redirect(301,'https://docs.google.com/spreadsheets/d/1pbkeCvit_h7yf13__w0PhS46cvyEtgop4Q9o63_2_uI/edit#gid=1862112321')
             break;
         case '':
         case null:
