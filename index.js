@@ -17,7 +17,7 @@ app.get('/', function(req, res) {
     console.log(action)
     switch (action){
        case 'sheet':
-            res.redirect(301, 'process.env.ssurl')
+            res.redirect(301, process.env.ssurl)
             break;
         case '':
         case null:
@@ -46,9 +46,6 @@ app.post('/', function(req, res) {
     html=html.replace('##URL##',process.env.gasurl)
 
     switch (req.body.action){
-        case 'sheet':
-            res.redirect(301, 'process.env.ssurl')
-            break;
         case 'home':
         case 'update':
         case 'add':
