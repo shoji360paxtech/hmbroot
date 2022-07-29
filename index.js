@@ -44,6 +44,9 @@ app.post('/', function(req, res) {
     html=html.replace('##URL##',process.env.gasurl)
 
     switch (req.body.action){
+        case 'sheet':
+            res.redirect(301, 'process.env.ssurl')
+            break;
         case 'home':
         case 'update':
         case 'add':
