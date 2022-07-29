@@ -16,7 +16,9 @@ app.get('/', function(req, res) {
     var action=req.query.action || 'login'
     console.log(action)
     switch (action){
-
+       case 'sheet':
+            res.redirect(301, 'process.env.ssurl')
+            break;
         case '':
         case null:
         case 'login':
