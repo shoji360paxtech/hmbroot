@@ -16,9 +16,9 @@ app.get('/', function(req, res) {
     var action=req.query.action || 'login'
     console.log(action)
     switch (action){
-       //case 'sheet':
-       //     res.redirect(301,'https://docs.google.com/spreadsheets/d/1pbkeCvit_h7yf13__w0PhS46cvyEtgop4Q9o63_2_uI/edit#gid=1862112321')
-       //     break;
+       case 'sheet':
+            res.redirect(301,'https://docs.google.com/spreadsheets/d/1pbkeCvit_h7yf13__w0PhS46cvyEtgop4Q9o63_2_uI/edit#gid=1862112321')
+            break;
         case '':
         case null:
         case 'login':
@@ -48,7 +48,8 @@ app.post('/', function(req, res) {
     switch (req.body.action){
         case 'home':
         case 'update':
-        case 'add':
+        case 'update2':
+         case 'add':
         case 'changepass':
         case 'image':
         for (key in req.body){
