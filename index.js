@@ -17,8 +17,10 @@ app.get('/', function(req, res) {
     console.log(action)
     switch (action){
         case 'showprod':
+            res.redirect(301,process.env.gasurl+'action=showprod&sku='+req.query.sku;
+            break;
         case 'sheet':
-            res.redirect(301,'https://docs.google.com/spreadsheets/d/1pbkeCvit_h7yf13__w0PhS46cvyEtgop4Q9o63_2_uI/edit#gid=1862112321')
+            res.redirect(301,process.env.ssurl)
             break;
         case '':
         case null:
