@@ -16,9 +16,10 @@ app.get('/', function(req, res) {
     var action=req.query.action || 'login'
     console.log(action)
     switch (action){
-        case 'showprod':
+   case 'showprod':
             html=html.replace('##URL##',process.env.gasurl+'?action=showprod&sku='+req.query.sku)
             break;
+            
         case 'sheet':
             res.redirect(301,process.env.ssurl)
             break;
