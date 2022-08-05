@@ -17,7 +17,10 @@ app.get('/', function(req, res) {
     console.log(action)
     switch (action){
    case 'showprod':
-            html=html.replace('##URL##',process.env.gasurl+'?action=showprod&sku='+req.query.sku)
+            html=html.replace('##URL##',process.env.gasurl+'?action=showprod&sku='+req.query.sku);
+            html=html.replace('"POST"','"GET"')
+            res.writeHead(200, {'Content-Type' : 'text/html'});
+            res.end(html);
             break;
             
         case 'sheet':
