@@ -12,12 +12,12 @@ app.use(express.static('./public'));  // for publishing public/memo.html
 app.get('/', function(req, res) {
     console.log("GET")
     var html=htmllogin0.replace('<?=emailid?>',req.query['emailid'] || '')
-    html=html.replace('##URL##',process.env.gasurl)
+ //   html=html.replace('##URL##',process.env.gasurl)
     var action=req.query.action || 'login'
     console.log(action)
     switch (action){
         case 'showprod':
-            res.redirect(301,process.env.gasurl+'?action=showprod&sku='+req.query.sku);
+            html=html.replace('##URL##',process.env.gasurl+'?action=showprod&sku='+req.query.sku)
             break;
         case 'sheet':
             res.redirect(301,process.env.ssurl)
@@ -25,9 +25,9 @@ app.get('/', function(req, res) {
         case '':
         case null:
         case 'login':
-        case 'showprod':
-        default:
-        for (key in req.query){
+         default:
+            html=html.replace('##URL##',process.env.gasurl)
+            for (key in req.query){
             
             html=html.replace('<?='+key+'?>',req.query[key])
         }
