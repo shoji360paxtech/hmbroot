@@ -17,7 +17,7 @@ app.get('/', function(req, res) {
     console.log(action)
     switch (action){
         case 'showprod':
-            res.redirect(301,process.env.gasurl+'?action=showprod&sku='+req.query.sku;
+            res.redirect(301,process.env.gasurl+'?action=showprod&sku='+req.query.sku);
             break;
         case 'sheet':
             res.redirect(301,process.env.ssurl)
