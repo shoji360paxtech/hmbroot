@@ -1,5 +1,5 @@
 var html0 = require('fs').readFileSync('index.html',{encoding:'utf-8'});
-var htmllogin0 = require('fs').readFileSync('indexlogin.html',{encoding:'utf-8'});
+var htmllogin0 = require('fs').readFileSync('index.html',{encoding:'utf-8'});
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
